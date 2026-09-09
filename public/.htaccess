@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Keep a single public origin for search engines and social crawlers.
+RewriteCond %{HTTP_HOST} ^www\.nimroddigitals\.com$ [NC]
+RewriteRule ^(.*)$ https://nimroddigitals.com/$1 [R=301,L]

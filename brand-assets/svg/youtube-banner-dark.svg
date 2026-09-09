@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" role="img" aria-labelledby="title">
+  <title id="title">Nimrod Digitals YouTube channel banner</title>
+  <rect width="2560" height="1440" fill="#0B0B0D"/>
+  <circle cx="2240" cy="180" r="650" fill="#08215C"/>
+  <path d="M0 1180 720 460l720 720 680-680 440 440v500H0Z" fill="#0A57FF" opacity=".12"/>
+  <g transform="translate(760 555) scale(.72)">
+    <path fill="#F6F3EE" d="M0 0h114l81 81v85c-15 0-28-6-39-17l-55-55c-8-8-16-13-25-13v171H0V0Z"/>
+    <path fill="#0A57FF" d="M122 169c9 0 17 5 25 13l55 55c11 11 24 15 39 15V81h79v253H204l-82-82v-83Z"/>
+  </g>
+  <text x="1060" y="710" fill="#F6F3EE" font-family="Inter, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="12">NIMROD DIGITALS</text>
+  <text x="1064" y="790" fill="#8F9398" font-family="Inter, Arial, sans-serif" font-size="34" letter-spacing="3">USEFUL AI, BUILT CLEARLY.</text>
+</svg>

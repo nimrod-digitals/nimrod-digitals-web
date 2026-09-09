@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1750 360" role="img" aria-labelledby="title">
+  <title id="title">Nimrod Digitals horizontal logo for dark backgrounds</title>
+  <g transform="translate(52 28) scale(.91)">
+    <path fill="#F6F3EE" d="M0 0h114l81 81v85c-15 0-28-6-39-17l-55-55c-8-8-16-13-25-13v171H0V0Z"/>
+    <path fill="#0A57FF" d="M122 169c9 0 17 5 25 13l55 55c11 11 24 15 39 15V81h79v253H204l-82-82v-83Z"/>
+  </g>
+  <text x="390" y="216" fill="#F6F3EE" font-family="Inter, Arial, sans-serif" font-size="94" font-weight="700" letter-spacing="18">NIMROD DIGITALS</text>
+</svg>

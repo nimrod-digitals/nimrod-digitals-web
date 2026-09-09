@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title">
+  <title id="title">Nimrod Digitals social share card</title>
+  <rect width="1200" height="630" fill="#F6F3EE"/>
+  <path fill="#0A57FF" d="M0 0h22v630H0z"/>
+  <g transform="translate(86 94) scale(.77)">
+    <path fill="#08215C" d="M0 0h114l81 81v85c-15 0-28-6-39-17l-55-55c-8-8-16-13-25-13v171H0V0Z"/>
+    <path fill="#0A57FF" d="M122 169c9 0 17 5 25 13l55 55c11 11 24 15 39 15V81h79v253H204l-82-82v-83Z"/>
+  </g>
+  <text x="86" y="470" fill="#0B0B0D" font-family="Inter, Arial, sans-serif" font-size="50" font-weight="700" letter-spacing="10">NIMROD DIGITALS</text>
+  <text x="720" y="235" fill="#08215C" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="700">Useful AI.</text>
+  <text x="720" y="322" fill="#0A57FF" font-family="Inter, Arial, sans-serif" font-size="76" font-weight="700">Built clearly.</text>
+  <text x="724" y="398" fill="#8F9398" font-family="Inter, Arial, sans-serif" font-size="28">AI · DESIGN · DIGITAL EXECUTION</text>
+</svg>

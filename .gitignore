@@ -1,0 +1,18 @@
+# Dependencies and framework output
+node_modules/
+.next/
+.next-*/
+out/
+out-*/
+*.tsbuildinfo
+
+# Local environment configuration
+.env.local
+.env*.local
+
+# Logs and editor files
+*.log
+.DS_Store
+
+# Generated release packages
+nimrod-digitals-*.zip
