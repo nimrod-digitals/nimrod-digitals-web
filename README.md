@@ -91,7 +91,10 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed TableFlow release security cleanup: Hostinger confirms both temporary release-key records are deleted, the server rejects the TableFlow key, and the local key pair and release archive were removed.
 - Expanded the local SignalDesk concept into the second deeper functional showcase. It now models an AI-assisted lead inbox, explainable lead brief, suggested owner and next action, and a human approval action before any follow-up. All enquiries are fictional, and the demo neither captures nor contacts real people. The Node 22 static production build passed; owner review and deployment are pending.
 - Diagnosed a production asset mismatch affecting every individual Nimrod Lab hero. The pages correctly request their project-specific filenames, but all eight currently served image files differ from the approved local versions and fall back visually to the old shared artwork. Hostinger's CDN continued returning the stale image paths after its cache flush, so the corrective release uses versioned image filenames to guarantee the approved per-project heroes are fetched.
-- Published this clean initial website commit to the public `nimrod-digitals/nimrod-digitals-web` GitHub repository. A dedicated SSH key is scoped to the Nimrod Digitals GitHub account for future pushes; it is not connected to Hostinger or CAG TechWorks.
+- Deployed the complete Nimrod Labs correction and SignalDesk functional showcase. All eight live Lab pages now request and return their approved project-specific hero images under cache-proof versioned filenames; live hash checks passed for every asset. SignalDesk’s fictional AI lead-triage interactions are also live. Hostinger CDN development mode is temporarily enabled on the main domain to serve the corrected origin files immediately while the CDN cache refreshes. The temporary release SSH key was deleted from Hostinger after verification.
+- Tested normal Hostinger CDN delivery after the owner review: it still returned the stale image copy, so development mode remains enabled to protect the correct live experience. With development mode on, a fresh public asset hash check matches the approved CareRoute hero exactly.
+- Published the clean initial website commit to the public `nimrod-digitals/nimrod-digitals-web` GitHub repository. It contains the approved source, brand assets, Labs demos, and safe environment example. A dedicated SSH key for the Nimrod Digitals GitHub account was created for reliable future pushes; it is not connected to Hostinger or CAG TechWorks.
+- Reconnected the active development folder to the Nimrod Digitals repository’s `main` branch. Its Git settings now use the dedicated Nimrod GitHub SSH key and track the published remote for future approved changes.
 
 ### Pending
 
@@ -100,7 +103,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Review the live Nimrod Labs concept portfolio, including the eight project-specific banners and TableFlow’s AI WhatsApp concierge, and collect feedback for the next iteration.
 - Review the live TableFlow functional showcase and collect feedback for the next Nimrod Labs app.
-- Review and approve the local SignalDesk functional showcase before deploying it to production.
-- Redeploy the current static release so all eight live Lab pages use their approved, project-specific hero images rather than stale shared image assets.
+- Review the live SignalDesk functional showcase and collect feedback for the next Nimrod Labs app.
+- Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
-- Reconnect the primary development folder to the Nimrod Digitals repository so future approved updates can be committed and pushed directly from the working source.
