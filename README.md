@@ -91,6 +91,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed TableFlow release security cleanup: Hostinger confirms both temporary release-key records are deleted, the server rejects the TableFlow key, and the local key pair and release archive were removed.
 - Expanded the local SignalDesk concept into the second deeper functional showcase. It now models an AI-assisted lead inbox, explainable lead brief, suggested owner and next action, and a human approval action before any follow-up. All enquiries are fictional, and the demo neither captures nor contacts real people. The Node 22 static production build passed; owner review and deployment are pending.
 - Diagnosed a production asset mismatch affecting every individual Nimrod Lab hero. The pages correctly request their project-specific filenames, but all eight currently served image files differ from the approved local versions and fall back visually to the old shared artwork. Hostinger's CDN continued returning the stale image paths after its cache flush, so the corrective release uses versioned image filenames to guarantee the approved per-project heroes are fetched.
+- Published this clean initial website commit to the public `nimrod-digitals/nimrod-digitals-web` GitHub repository. A dedicated SSH key is scoped to the Nimrod Digitals GitHub account for future pushes; it is not connected to Hostinger or CAG TechWorks.
 
 ### Pending
 
@@ -102,3 +103,4 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Review and approve the local SignalDesk functional showcase before deploying it to production.
 - Redeploy the current static release so all eight live Lab pages use their approved, project-specific hero images rather than stale shared image assets.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
+- Reconnect the primary development folder to the Nimrod Digitals repository so future approved updates can be committed and pushed directly from the working source.
