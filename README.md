@@ -95,11 +95,10 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Tested normal Hostinger CDN delivery after the owner review: it still returned the stale image copy, so development mode remains enabled to protect the correct live experience. With development mode on, a fresh public asset hash check matches the approved CareRoute hero exactly.
 - Published the clean initial website commit to the public `nimrod-digitals/nimrod-digitals-web` GitHub repository. It contains the approved source, brand assets, Labs demos, and safe environment example. A dedicated SSH key for the Nimrod Digitals GitHub account was created for reliable future pushes; it is not connected to Hostinger or CAG TechWorks.
 - Reconnected the active development folder to the Nimrod Digitals repository’s `main` branch. Its Git settings now use the dedicated Nimrod GitHub SSH key and track the published remote for future approved changes.
-- Expanded KitchenPulse locally into a deeper restaurant-operations showcase. The concept now includes simulated shift stages, demand/readiness/owner-review metrics, selectable AI recommendations, and a visible owner-approval step that cannot trigger real staff, stock, price, or guest actions. Local visual review and production build verification remain pending because the cloud-synced source folder is slow to index.
+- Expanded, visually reviewed, built, and deployed KitchenPulse as a deeper restaurant-operations showcase. The concept now includes simulated shift stages, demand/readiness/owner-review metrics, selectable AI recommendations, and a visible owner-approval step that cannot trigger real staff, stock, price, or guest actions. The Node 22 static production export passed from a fast local copy, and the live KitchenPulse page was verified after Hostinger deployment.
 
 ### Pending
 
-- Review the local KitchenPulse operating-cockpit showcase, then run the production build from a fast local copy and deploy only after approval.
 - After the scheduled September 21 CMS publication, rebuild and deploy the static frontend, verify the new route and sitemap, and request Google indexing.
 - After the September 21 publication workflow completes, activate the October 5 publication-day rebuild, deployment, sitemap verification, and Google indexing follow-through. Only one heartbeat automation can be attached to this task at a time.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
