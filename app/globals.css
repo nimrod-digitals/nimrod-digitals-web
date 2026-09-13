@@ -373,6 +373,37 @@ button { font: inherit; }
 .fieldlink-decision aside button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .68rem; font-weight: 800; margin-top: auto; padding: .7rem; }
 .fieldlink-decision aside button.is-approved { background: var(--navy-blue); cursor: default; }
 .fieldlink-decision aside small { color: #69707a; font-size: .58rem; line-height: 1.35; margin-top: .6rem; }
+.guestsignal-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
+.guestsignal-queue { background: #e9e5df; display: flex; flex-direction: column; padding: 1.4rem 1.25rem; }
+.guestsignal-queue > .eyebrow { color: var(--navy-blue); margin: .2rem 0 1rem; }
+.guestsignal-queue button { background: transparent; border: 0; border-top: 1px solid rgba(8, 33, 92, .17); color: var(--ink-black); cursor: pointer; display: grid; gap: .3rem; padding: .85rem 0; text-align: left; }
+.guestsignal-queue button:last-of-type { border-bottom: 1px solid rgba(8, 33, 92, .17); }
+.guestsignal-queue button span { color: #69707a; font-size: .58rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.guestsignal-queue button strong { font-size: .79rem; }
+.guestsignal-queue button small { color: #69707a; font-size: .62rem; }
+.guestsignal-queue button.is-active span, .guestsignal-queue button.is-active strong { color: var(--signal); }
+.guestsignal-queue > p:last-child { color: #69707a; font-size: .64rem; line-height: 1.45; margin: auto 0 0; padding-top: 1rem; }
+.guestsignal-main { min-height: 31rem; padding: 2rem; }
+.guestsignal-main > .eyebrow { color: var(--signal); margin: .1rem 0 .7rem; }
+.guestsignal-main h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.06em; line-height: .98; margin: 0 0 1.3rem; max-width: 42rem; }
+.guestsignal-overview { border-bottom: 1px solid rgba(8, 33, 92, .16); border-top: 1px solid rgba(8, 33, 92, .16); display: grid; gap: 1rem; grid-template-columns: .65fr 1.35fr; padding: .8rem 0; }
+.guestsignal-overview div, .guestsignal-review aside { display: flex; flex-direction: column; }
+.guestsignal-overview span, .guestsignal-review aside span { color: #69707a; font-size: .58rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.guestsignal-overview strong { font-size: .76rem; line-height: 1.35; margin-top: .25rem; }
+.guestsignal-detail { color: #59616c; font-size: .78rem; line-height: 1.52; margin: 1rem 0; max-width: 44rem; }
+.guestsignal-timeline { display: grid; gap: .45rem; grid-template-columns: repeat(3, 1fr); }
+.guestsignal-timeline div { background: rgba(10, 87, 255, .07); display: flex; flex-direction: column; min-height: 4.3rem; padding: .65rem; }
+.guestsignal-timeline i { color: var(--signal); font-size: .58rem; font-style: normal; font-weight: 800; letter-spacing: .06em; }
+.guestsignal-timeline span { color: var(--navy-blue); font-size: .65rem; line-height: 1.3; margin-top: auto; }
+.guestsignal-review { display: grid; gap: .7rem; grid-template-columns: minmax(0, 1.4fr) minmax(12rem, .75fr); margin-top: 1.2rem; }
+.guestsignal-review > div { background: var(--navy-blue); color: var(--bone-white); padding: 1.1rem; }
+.guestsignal-review .eyebrow { color: var(--signal); margin: 0; }
+.guestsignal-review h3 { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: -.04em; line-height: 1.08; margin: .65rem 0 0; }
+.guestsignal-review aside { background: var(--ink-black); color: var(--bone-white); padding: 1.1rem; }
+.guestsignal-review aside strong { font-size: .76rem; margin: .25rem 0 1rem; }
+.guestsignal-review button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .67rem; font-weight: 800; margin-top: auto; padding: .7rem; }
+.guestsignal-review button.is-approved { background: var(--bone-white); color: var(--navy-blue); cursor: default; }
+.guestsignal-review small { color: rgba(246, 243, 238, .58); font-size: .57rem; line-height: 1.35; margin-top: .6rem; }
 .kitchenpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
 .kitchenpulse-side { background: #071a47; display: flex; flex-direction: column; padding: 2rem 1.25rem; }
 .kitchenpulse-side > .eyebrow { margin: 0 0 .8rem; }
@@ -480,6 +511,10 @@ button { font: inherit; }
   .fieldlink-day > p:last-child { display: none; }
   .fieldlink-main { padding: 1.5rem 1.25rem; }
   .fieldlink-exception-list, .fieldlink-decision { grid-template-columns: 1fr; }
+  .guestsignal-layout { grid-template-columns: 1fr; }
+  .guestsignal-queue > p:last-child { display: none; }
+  .guestsignal-main { padding: 1.5rem 1.25rem; }
+  .guestsignal-overview, .guestsignal-timeline, .guestsignal-review { grid-template-columns: 1fr; }
   .tableflow-board { grid-template-columns: 1fr; }
   .tableflow-stats { grid-template-columns: repeat(3, 1fr); }
   .tableflow-queue > div { grid-template-columns: 4.5rem 1fr; }

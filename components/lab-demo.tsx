@@ -75,6 +75,12 @@ const fieldExceptions = [
   { label: "Customer request", job: "Northfield · annual visit", time: "3:00–3:45", technician: "Priya S.", customer: "Northfield", detail: "The customer requested a later arrival, but the schedule needs a human trade-off.", suggestion: "Review a same-day swap with the nearby 4:00 PM booking.", impact: "Makes the change visible to everyone", status: "Review change" },
 ];
 
+const guestMoments = [
+  { label: "Arrival rhythm", guest: "Avery L.", stay: "Today · 2 nights", preference: "Quiet arrival · room near lift avoided", detail: "A pre-arrival note says Avery would value a low-friction check-in after a late flight.", suggestion: "Prepare a concise arrival brief and ask the host to offer the quietest available welcome route.", timeline: ["Pre-arrival · preference noted", "Check-in · host review", "During stay · optional local ideas"], owner: "Front-of-house host" },
+  { label: "Celebration stay", guest: "Sam & Riley", stay: "Tomorrow · 1 night", preference: "Dinner enquiry · celebration noted", detail: "The guests asked whether a relaxed dinner option is available after check-in, without requesting a reservation yet.", suggestion: "Give the duty host two suitable dinner options to discuss if the guests choose to ask.", timeline: ["Pre-arrival · enquiry captured", "Check-in · confirm interest", "During stay · team-owned follow-through"], owner: "Duty host" },
+  { label: "Local discovery", guest: "Jordan P.", stay: "Friday · 3 nights", preference: "Accessible neighbourhood ideas", detail: "Jordan’s planning note asks for a calm, accessible way to explore the neighbourhood at their own pace.", suggestion: "Review a short accessible local guide with the concierge before making it available to the guest.", timeline: ["Pre-arrival · interests noted", "Check-in · ask permission", "During stay · concierge review"], owner: "Concierge" },
+];
+
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
@@ -91,6 +97,8 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [stockApproved, setStockApproved] = useState(false);
   const [fieldException, setFieldException] = useState(fieldExceptions[0]);
   const [fieldApproved, setFieldApproved] = useState(false);
+  const [guestMoment, setGuestMoment] = useState(guestMoments[0]);
+  const [guestApproved, setGuestApproved] = useState(false);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -186,6 +194,18 @@ export function LabDemo({ lab }: { lab: Lab }) {
             <div className="fieldlink-exception-list">{fieldExceptions.map((exception) => <button className={fieldException.job === exception.job ? "is-active" : ""} key={exception.job} onClick={() => { setFieldException(exception); setFieldApproved(false); }} type="button"><span>{exception.status}</span><strong>{exception.job}</strong><small>{exception.time} · {exception.technician}</small></button>)}</div>
             <div className="fieldlink-decision"><div><p className="eyebrow">Suggested coordination step</p><h3>{fieldException.suggestion}</h3><p>{fieldException.detail}</p><small>{fieldException.impact}</small></div><aside><span>Customer</span><strong>{fieldException.customer}</strong><span>Assigned technician</span><strong>{fieldException.technician}</strong><button className={fieldApproved ? "is-approved" : ""} disabled={fieldApproved} onClick={() => setFieldApproved(true)} type="button">{fieldApproved ? "Dispatcher review recorded" : "Approve for dispatcher review"}</button><small>Simulation only · approval does not change a booking or message anyone.</small></aside></div>
           </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (lab.slug === "guestsignal") {
+    return (
+      <section className="lab-demo lab-demo-bone guestsignal-demo" aria-label={`${lab.title} interactive demonstration`}>
+        <div className="lab-demo-chrome"><span /><span /><span /><p>GuestSignal / stay planning concierge</p></div>
+        <div className="guestsignal-layout">
+          <aside className="guestsignal-queue"><p className="eyebrow">Arrivals to consider · 03</p>{guestMoments.map((moment) => <button className={guestMoment.guest === moment.guest ? "is-active" : ""} key={moment.guest} onClick={() => { setGuestMoment(moment); setGuestApproved(false); }} type="button"><span>{moment.label}</span><strong>{moment.guest}</strong><small>{moment.stay}</small></button>)}<p>Fictional preferences only · this concept does not access a booking system or contact a guest.</p></aside>
+          <div className="guestsignal-main" aria-live="polite"><p className="eyebrow">Guest brief · staff-owned moment</p><h2>A considered stay starts with a useful handoff.</h2><div className="guestsignal-overview"><div><span>Stay</span><strong>{guestMoment.stay}</strong></div><div><span>Stated preference</span><strong>{guestMoment.preference}</strong></div></div><p className="guestsignal-detail">{guestMoment.detail}</p><div className="guestsignal-timeline">{guestMoment.timeline.map((item, index) => <div key={item}><i>{String(index + 1).padStart(2, "0")}</i><span>{item}</span></div>)}</div><div className="guestsignal-review"><div><p className="eyebrow">Suggested preparation</p><h3>{guestMoment.suggestion}</h3></div><aside><span>Suggested owner</span><strong>{guestMoment.owner}</strong><button className={guestApproved ? "is-approved" : ""} disabled={guestApproved} onClick={() => setGuestApproved(true)} type="button">{guestApproved ? "Host review recorded" : "Mark ready for host review"}</button><small>Simulation only · no reservation, message, or service promise is changed.</small></aside></div></div>
         </div>
       </section>
     );
