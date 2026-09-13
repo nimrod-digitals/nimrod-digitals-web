@@ -343,6 +343,36 @@ button { font: inherit; }
 .stockroom-recommendation button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .7rem; font-weight: 800; margin-top: auto; padding: .75rem; }
 .stockroom-recommendation button.is-approved { background: var(--navy-blue); cursor: default; }
 .stockroom-recommendation > small { color: #69707a; font-size: .59rem; line-height: 1.35; margin-top: .65rem; }
+.fieldlink-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
+.fieldlink-day { background: #071a47; display: flex; flex-direction: column; padding: 1.4rem 1.25rem; }
+.fieldlink-day > .eyebrow { margin: .2rem 0 1.2rem; }
+.fieldlink-route { display: grid; gap: .35rem .8rem; grid-template-columns: 2.9rem 1fr; }
+.fieldlink-route span { color: rgba(246, 243, 238, .52); font-size: .62rem; font-weight: 700; letter-spacing: .06em; }
+.fieldlink-route strong { font-size: .77rem; line-height: 1.25; }
+.fieldlink-route strong.is-alert { color: var(--signal); }
+.fieldlink-route i { background: rgba(246, 243, 238, .18); grid-column: 2; height: 1.5rem; margin-left: .2rem; width: 1px; }
+.fieldlink-day > p:last-child { color: rgba(246, 243, 238, .54); font-size: .67rem; line-height: 1.5; margin: auto 0 0; padding-top: 1.5rem; }
+.fieldlink-main { min-height: 31rem; padding: 2rem; }
+.fieldlink-main > .eyebrow { margin: .1rem 0 .7rem; }
+.fieldlink-main h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.06em; line-height: .98; margin: 0 0 1.5rem; max-width: 44rem; }
+.fieldlink-exception-list { display: grid; gap: .5rem; grid-template-columns: repeat(3, 1fr); }
+.fieldlink-exception-list button { background: rgba(246, 243, 238, .06); border: 1px solid rgba(246, 243, 238, .16); color: var(--bone-white); cursor: pointer; display: grid; gap: .38rem; min-height: 7rem; padding: .85rem; text-align: left; transition: background-color 160ms ease, border-color 160ms ease; }
+.fieldlink-exception-list button:hover, .fieldlink-exception-list button.is-active { background: rgba(10, 87, 255, .18); border-color: var(--signal); }
+.fieldlink-exception-list span { color: var(--signal); font-size: .6rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.fieldlink-exception-list strong { font-size: .78rem; line-height: 1.25; }
+.fieldlink-exception-list small { color: rgba(246, 243, 238, .56); font-size: .62rem; }
+.fieldlink-decision { display: grid; gap: .7rem; grid-template-columns: minmax(0, 1.4fr) minmax(12rem, .75fr); margin-top: 1.3rem; }
+.fieldlink-decision > div { border: 1px solid rgba(246, 243, 238, .16); padding: 1.15rem; }
+.fieldlink-decision .eyebrow { margin: 0; }
+.fieldlink-decision h3 { font-family: var(--font-display); font-size: 1.32rem; letter-spacing: -.04em; line-height: 1.06; margin: .65rem 0; }
+.fieldlink-decision > div > p:not(.eyebrow) { color: rgba(246, 243, 238, .68); font-size: .76rem; line-height: 1.5; margin: 0; }
+.fieldlink-decision > div > small { color: var(--signal); display: block; font-size: .64rem; font-weight: 700; margin-top: 1rem; }
+.fieldlink-decision aside { background: var(--bone-white); color: var(--ink-black); display: flex; flex-direction: column; padding: 1.1rem; }
+.fieldlink-decision aside span { color: #69707a; font-size: .58rem; font-weight: 800; letter-spacing: .08em; margin-top: .25rem; text-transform: uppercase; }
+.fieldlink-decision aside strong { font-size: .77rem; margin: .2rem 0 .55rem; }
+.fieldlink-decision aside button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .68rem; font-weight: 800; margin-top: auto; padding: .7rem; }
+.fieldlink-decision aside button.is-approved { background: var(--navy-blue); cursor: default; }
+.fieldlink-decision aside small { color: #69707a; font-size: .58rem; line-height: 1.35; margin-top: .6rem; }
 .kitchenpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
 .kitchenpulse-side { background: #071a47; display: flex; flex-direction: column; padding: 2rem 1.25rem; }
 .kitchenpulse-side > .eyebrow { margin: 0 0 .8rem; }
@@ -446,6 +476,10 @@ button { font: inherit; }
   .stockroom-note { display: none; }
   .stockroom-main { padding: 1.5rem 1.25rem; }
   .stockroom-metrics, .stockroom-decision { grid-template-columns: 1fr; }
+  .fieldlink-layout { grid-template-columns: 1fr; }
+  .fieldlink-day > p:last-child { display: none; }
+  .fieldlink-main { padding: 1.5rem 1.25rem; }
+  .fieldlink-exception-list, .fieldlink-decision { grid-template-columns: 1fr; }
   .tableflow-board { grid-template-columns: 1fr; }
   .tableflow-stats { grid-template-columns: repeat(3, 1fr); }
   .tableflow-queue > div { grid-template-columns: 4.5rem 1fr; }

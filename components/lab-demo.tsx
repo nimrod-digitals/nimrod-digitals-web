@@ -69,6 +69,12 @@ const stockSignals = [
   { label: "Review", product: "Weekender duffel", sku: "WD-08 / black", stock: "22", velocity: "04 sold · 7 days", coverage: "38 days", reason: "Current availability exceeds the recent demand pattern.", recommendation: "Hold the next replenishment and review the display placement", impact: "Avoids buying stock that will wait", stores: ["Downtown · 22 on hand", "Riverside · 19 on hand", "Online · 2 reserved"] },
 ];
 
+const fieldExceptions = [
+  { label: "Travel delay", job: "Aster Lane · boiler service", time: "10:30–11:15", technician: "Maya R.", customer: "Aster Lane", detail: "Traffic adds an estimated 24 minutes to the previous visit.", suggestion: "Offer a 30-minute later arrival window and protect the afternoon install slot.", impact: "Keeps two later appointments on track", status: "Needs review" },
+  { label: "Parts check", job: "Cedar Street · repair", time: "12:00–12:45", technician: "Jon B.", customer: "Cedar Street", detail: "The assigned part has not been marked ready at the depot.", suggestion: "Ask dispatch to confirm the part before the technician leaves the prior job.", impact: "Avoids a wasted customer visit", status: "Check depot" },
+  { label: "Customer request", job: "Northfield · annual visit", time: "3:00–3:45", technician: "Priya S.", customer: "Northfield", detail: "The customer requested a later arrival, but the schedule needs a human trade-off.", suggestion: "Review a same-day swap with the nearby 4:00 PM booking.", impact: "Makes the change visible to everyone", status: "Review change" },
+];
+
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
@@ -83,6 +89,8 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [careReady, setCareReady] = useState(false);
   const [stockSignal, setStockSignal] = useState(stockSignals[0]);
   const [stockApproved, setStockApproved] = useState(false);
+  const [fieldException, setFieldException] = useState(fieldExceptions[0]);
+  const [fieldApproved, setFieldApproved] = useState(false);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -161,6 +169,22 @@ export function LabDemo({ lab }: { lab: Lab }) {
           <div className="stockroom-main" aria-live="polite">
             <div className="stockroom-overview"><p className="eyebrow">Inventory decision · review required</p><h2>{stockSignal.product} needs a deliberate next step.</h2><p>{stockSignal.reason}</p><div className="stockroom-metrics"><article><span>On hand</span><strong>{stockSignal.stock}</strong><small>units across the network</small></article><article><span>Recent velocity</span><strong>{stockSignal.velocity}</strong><small>illustrative sales signal</small></article><article><span>Estimated cover</span><strong>{stockSignal.coverage}</strong><small>not a demand guarantee</small></article></div></div>
             <div className="stockroom-decision"><div className="stockroom-locations"><p className="eyebrow">Location view</p>{stockSignal.stores.map((store) => <p key={store}><span>•</span>{store}</p>)}</div><div className="stockroom-recommendation"><p className="eyebrow">Explainable recommendation</p><h3>{stockSignal.recommendation}</h3><p>{stockSignal.impact}</p><button className={stockApproved ? "is-approved" : ""} disabled={stockApproved} onClick={() => setStockApproved(true)} type="button">{stockApproved ? "Owner review recorded in this demo" : "Approve for buyer review"}</button><small>Simulation only · this never sends a supplier order, moves inventory, or changes product availability.</small></div></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (lab.slug === "fieldlink") {
+    return (
+      <section className="lab-demo lab-demo-blue fieldlink-demo" aria-label={`${lab.title} interactive demonstration`}>
+        <div className="lab-demo-chrome"><span /><span /><span /><p>FieldLink / dispatch coordination</p></div>
+        <div className="fieldlink-layout">
+          <aside className="fieldlink-day"><p className="eyebrow">Tuesday · route pulse</p><div className="fieldlink-route"><span>08:30</span><strong>Depot start</strong><i /><span>09:00</span><strong>Service visit</strong><i /><span>10:30</span><strong className="is-alert">Route exception</strong><i /><span>12:00</span><strong>Repair visit</strong><i /><span>15:00</span><strong>Annual visit</strong></div><p>Simulated schedule only · no customer or technician is contacted from this concept.</p></aside>
+          <div className="fieldlink-main" aria-live="polite">
+            <p className="eyebrow">Dispatch exceptions · 03</p><h2>Keep the day clear when the plan changes.</h2>
+            <div className="fieldlink-exception-list">{fieldExceptions.map((exception) => <button className={fieldException.job === exception.job ? "is-active" : ""} key={exception.job} onClick={() => { setFieldException(exception); setFieldApproved(false); }} type="button"><span>{exception.status}</span><strong>{exception.job}</strong><small>{exception.time} · {exception.technician}</small></button>)}</div>
+            <div className="fieldlink-decision"><div><p className="eyebrow">Suggested coordination step</p><h3>{fieldException.suggestion}</h3><p>{fieldException.detail}</p><small>{fieldException.impact}</small></div><aside><span>Customer</span><strong>{fieldException.customer}</strong><span>Assigned technician</span><strong>{fieldException.technician}</strong><button className={fieldApproved ? "is-approved" : ""} disabled={fieldApproved} onClick={() => setFieldApproved(true)} type="button">{fieldApproved ? "Dispatcher review recorded" : "Approve for dispatcher review"}</button><small>Simulation only · approval does not change a booking or message anyone.</small></aside></div>
           </div>
         </div>
       </section>

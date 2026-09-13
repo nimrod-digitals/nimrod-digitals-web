@@ -98,6 +98,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Expanded, visually reviewed, built, and deployed KitchenPulse as a deeper restaurant-operations showcase. The concept now includes simulated shift stages, demand/readiness/owner-review metrics, selectable AI recommendations, and a visible owner-approval step that cannot trigger real staff, stock, price, or guest actions. The Node 22 static production export passed from a fast local copy, and the live KitchenPulse page was verified after Hostinger deployment.
 - Expanded, visually reviewed, built, and deployed CareRoute as a deeper clinic-intake showcase. It now presents three fictional intake journeys, progressive preparation prompts, and a concise staff handoff with an explicit human-review boundary. It never provides medical advice, stores health data, or confirms appointments. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
 - Expanded, visually reviewed, built, and deployed Stockroom as a deeper inventory-and-reorder showcase. It now presents three fictional stock signals, location-level availability, explainable recommendations, and an owner-review step before any potential buyer action. It never places supplier orders, moves inventory, or changes product availability. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
+- Expanded, visually reviewed, built, and deployed FieldLink as a deeper field-service dispatch showcase. It now presents a fictional route pulse, three scheduling exceptions, transparent coordination recommendations, and a dispatcher-review step before any potential booking or customer update. It never changes appointments or contacts people. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
 
 ### Pending
 
@@ -109,5 +110,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Review the live SignalDesk functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live CareRoute functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live Stockroom functional showcase and collect feedback for the next Nimrod Labs app.
+- Review the live FieldLink functional showcase and collect feedback for the next Nimrod Labs app.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
