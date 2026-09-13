@@ -57,6 +57,12 @@ const signalLeads = [
   { company: "Cedar Works", source: "Contact form", need: "Looking for help improving a website without a defined commercial or operational problem yet.", score: "Needs review · 42%", owner: "Human review", action: "Send a useful scoping note", context: "Broad request · avoid an automated sales response" },
 ];
 
+const careJourneys = [
+  { label: "New concern", person: "Morgan L.", reason: "New concern · first visit", step: "2 of 4", question: "What would make this appointment useful for you?", answer: "A short description helps the clinic prepare. You can skip anything you would rather discuss with the clinician.", readiness: "Needs two details", handoff: "Confirm preferred appointment window and any access needs", status: "In progress" },
+  { label: "Follow-up", person: "Alex R.", reason: "Follow-up · existing patient", step: "3 of 4", question: "Has anything changed since your last visit?", answer: "The care team can review your note alongside your previous appointment. This does not replace clinical advice.", readiness: "Ready for review", handoff: "Staff review requested changes before confirming", status: "Ready" },
+  { label: "Family booking", person: "Jamie K.", reason: "Family booking · guardian", step: "1 of 4", question: "Who is this appointment for?", answer: "We’ll collect only the practical details the team needs to arrange the right next step.", readiness: "Start intake", handoff: "Confirm guardian contact and appointment type", status: "New" },
+];
+
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
@@ -67,6 +73,8 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [kitchenApproved, setKitchenApproved] = useState(false);
   const [signalLead, setSignalLead] = useState(signalLeads[0]);
   const [signalApproved, setSignalApproved] = useState(false);
+  const [careJourney, setCareJourney] = useState(careJourneys[0]);
+  const [careReady, setCareReady] = useState(false);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -126,6 +134,40 @@ export function LabDemo({ lab }: { lab: Lab }) {
             <p className="signaldesk-need">{signalLead.need}</p>
             <div className="signaldesk-context"><p><span>Why it surfaced</span>{signalLead.context}</p><p><span>Suggested owner</span>{signalLead.owner}</p></div>
             <div className="signaldesk-action"><div><span>Recommended next action</span><strong>{signalLead.action}</strong></div><button className={signalApproved ? "is-approved" : ""} disabled={signalApproved} onClick={() => setSignalApproved(true)} type="button">{signalApproved ? "Human approval recorded" : "Approve next action"}</button></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (lab.slug === "careroute") {
+    return (
+      <section className="lab-demo lab-demo-bone careroute-demo" aria-label={`${lab.title} interactive demonstration`}>
+        <div className="lab-demo-chrome"><span /><span /><span /><p>CareRoute / patient intake navigator</p></div>
+        <div className="careroute-layout">
+          <aside className="careroute-queue">
+            <p className="eyebrow">Today’s intake queue</p>
+            {careJourneys.map((journey) => <button className={careJourney.label === journey.label ? "is-active" : ""} key={journey.label} onClick={() => { setCareJourney(journey); setCareReady(false); }} type="button"><span>{journey.status}</span><strong>{journey.person}</strong><small>{journey.reason}</small></button>)}
+            <p className="careroute-queue-note">Fictional people and simulated intake only. This is not a medical service or clinical decision tool.</p>
+          </aside>
+          <div className="careroute-main" aria-live="polite">
+            <div className="careroute-patient-view">
+              <div className="careroute-progress"><p className="eyebrow">Patient view · {careJourney.step}</p><span><i style={{ width: careJourney.step === "1 of 4" ? "25%" : careJourney.step === "2 of 4" ? "50%" : "75%" }} /></span></div>
+              <p className="careroute-welcome">Welcome, {careJourney.person.split(" ")[0]}.</p>
+              <h2>{careJourney.question}</h2>
+              <p>{careJourney.answer}</p>
+              <div className="careroute-field"><span>Your note</span><strong>Example response shown for demonstration</strong></div>
+              <div className="careroute-actions"><button type="button">Save and continue</button><small>You can pause, ask for support, or discuss details privately with the care team.</small></div>
+            </div>
+            <div className="careroute-handoff">
+              <p className="eyebrow">Staff handoff · human review</p>
+              <h3>A concise, respectful preparation brief.</h3>
+              <div><span>Appointment context</span><strong>{careJourney.reason}</strong></div>
+              <div><span>Readiness</span><strong>{careReady ? "Prepared for staff review" : careJourney.readiness}</strong></div>
+              <div><span>Useful next step</span><strong>{careJourney.handoff}</strong></div>
+              <button className={careReady ? "is-ready" : ""} disabled={careReady} onClick={() => setCareReady(true)} type="button">{careReady ? "Marked ready in this demo" : "Mark intake ready for staff review"}</button>
+              <small>Staff confirm appointments and handle urgent, sensitive, or unclear situations. No health data is stored or sent.</small>
+            </div>
           </div>
         </div>
       </section>

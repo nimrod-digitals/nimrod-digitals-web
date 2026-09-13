@@ -275,6 +275,42 @@ button { font: inherit; }
 .signaldesk-action span { color: rgba(246, 243, 238, .75); margin-bottom: .25rem; }
 .signaldesk-action button { background: var(--bone-white); border: 0; color: var(--navy-blue); cursor: pointer; flex: 0 0 auto; font-size: .72rem; font-weight: 800; padding: .75rem .9rem; }
 .signaldesk-action button.is-approved { background: rgba(8, 33, 92, .86); color: var(--bone-white); cursor: default; }
+.careroute-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
+.careroute-queue { background: #edf0f2; display: flex; flex-direction: column; padding: 1.25rem; }
+.careroute-queue > .eyebrow { color: var(--navy-blue); margin: .3rem 0 .8rem; }
+.careroute-queue button { background: transparent; border: 0; border-top: 1px solid rgba(8, 33, 92, .16); color: var(--ink-black); cursor: pointer; padding: 1rem .2rem; text-align: left; transition: background-color 160ms ease, padding 160ms ease; }
+.careroute-queue button:last-of-type { border-bottom: 1px solid rgba(8, 33, 92, .16); }
+.careroute-queue button:hover, .careroute-queue button.is-active { background: rgba(10, 87, 255, .08); padding-left: .6rem; }
+.careroute-queue button span, .careroute-queue button strong, .careroute-queue button small { display: block; }
+.careroute-queue button span { color: var(--signal); font-size: .62rem; font-weight: 800; letter-spacing: .09em; margin-bottom: .38rem; text-transform: uppercase; }
+.careroute-queue button strong { font-size: .9rem; }
+.careroute-queue button small { color: #626a75; font-size: .68rem; margin-top: .28rem; }
+.careroute-queue-note { color: #69707a; font-size: .68rem; line-height: 1.55; margin: auto 0 0; padding-top: 1.5rem; }
+.careroute-main { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(15rem, .9fr); min-height: 31rem; }
+.careroute-patient-view { padding: 2rem; }
+.careroute-progress { display: flex; gap: 1rem; justify-content: space-between; }
+.careroute-progress .eyebrow { color: var(--navy-blue); margin: 0; }
+.careroute-progress > span { align-self: center; background: #d9dee3; display: block; height: .25rem; max-width: 9rem; overflow: hidden; width: 38%; }
+.careroute-progress i { background: var(--signal); display: block; height: 100%; transition: width 250ms ease; }
+.careroute-welcome { color: #69707a; font-size: .78rem; font-weight: 700; margin: 2.8rem 0 .4rem; }
+.careroute-patient-view h2 { font-family: var(--font-display); font-size: clamp(1.9rem, 3.7vw, 3.25rem); letter-spacing: -.06em; line-height: .98; margin: 0; max-width: 34rem; }
+.careroute-patient-view > p:not(.eyebrow):not(.careroute-welcome) { color: #555e69; font-size: .9rem; line-height: 1.65; margin-top: 1.1rem; max-width: 34rem; }
+.careroute-field { border: 1px solid #cbd1d8; display: grid; gap: .45rem; margin-top: 1.6rem; max-width: 32rem; min-height: 5.2rem; padding: 1rem; }
+.careroute-field span, .careroute-handoff div span { color: #69707a; font-size: .61rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.careroute-field strong { color: #737b85; font-size: .75rem; font-weight: 500; }
+.careroute-actions { align-items: center; display: flex; gap: 1rem; margin-top: 1rem; max-width: 34rem; }
+.careroute-actions button, .careroute-handoff > button { background: var(--navy-blue); border: 0; color: var(--bone-white); cursor: pointer; font-size: .72rem; font-weight: 800; padding: .78rem .9rem; }
+.careroute-actions small { color: #69707a; font-size: .62rem; line-height: 1.4; }
+.careroute-handoff { background: var(--navy-blue); color: var(--bone-white); display: flex; flex-direction: column; padding: 2rem 1.25rem; }
+.careroute-handoff > .eyebrow { color: var(--signal); margin: .15rem 0 .8rem; }
+.careroute-handoff h3 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.05em; line-height: 1.02; margin: 0 0 1.6rem; }
+.careroute-handoff > div { border-top: 1px solid rgba(246, 243, 238, .17); display: grid; gap: .4rem; padding: .75rem 0; }
+.careroute-handoff div span { color: rgba(246, 243, 238, .56); }
+.careroute-handoff div strong { font-size: .76rem; line-height: 1.35; }
+.careroute-handoff > button { background: var(--signal); margin-top: auto; transition: background-color 160ms ease; }
+.careroute-handoff > button:hover { background: #0848d6; }
+.careroute-handoff > button.is-ready { background: rgba(246, 243, 238, .16); cursor: default; }
+.careroute-handoff > small { color: rgba(246, 243, 238, .57); font-size: .6rem; line-height: 1.45; margin-top: .75rem; }
 .kitchenpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
 .kitchenpulse-side { background: #071a47; display: flex; flex-direction: column; padding: 2rem 1.25rem; }
 .kitchenpulse-side > .eyebrow { margin: 0 0 .8rem; }
@@ -368,6 +404,11 @@ button { font: inherit; }
   .signaldesk-brief { min-height: 26rem; padding: 1.5rem 1.25rem; }
   .signaldesk-context { grid-template-columns: 1fr; }
   .signaldesk-action { margin: 1.5rem -1.25rem -1.5rem; padding: 1rem 1.25rem; }
+  .careroute-layout, .careroute-main { grid-template-columns: 1fr; }
+  .careroute-queue { min-height: auto; }
+  .careroute-queue-note { display: none; }
+  .careroute-patient-view { padding: 1.5rem 1.25rem; }
+  .careroute-handoff { padding: 1.5rem 1.25rem; }
   .tableflow-board { grid-template-columns: 1fr; }
   .tableflow-stats { grid-template-columns: repeat(3, 1fr); }
   .tableflow-queue > div { grid-template-columns: 4.5rem 1fr; }
