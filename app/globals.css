@@ -311,6 +311,38 @@ button { font: inherit; }
 .careroute-handoff > button:hover { background: #0848d6; }
 .careroute-handoff > button.is-ready { background: rgba(246, 243, 238, .16); cursor: default; }
 .careroute-handoff > small { color: rgba(246, 243, 238, .57); font-size: .6rem; line-height: 1.45; margin-top: .75rem; }
+.stockroom-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
+.stockroom-queue { background: #071a47; display: flex; flex-direction: column; padding: 1.25rem; }
+.stockroom-queue > .eyebrow { margin: .3rem 0 .8rem; }
+.stockroom-queue button { background: transparent; border: 0; border-top: 1px solid rgba(246, 243, 238, .16); color: var(--bone-white); cursor: pointer; padding: 1rem .2rem; text-align: left; transition: background-color 160ms ease, padding 160ms ease; }
+.stockroom-queue button:last-of-type { border-bottom: 1px solid rgba(246, 243, 238, .16); }
+.stockroom-queue button:hover, .stockroom-queue button.is-active { background: rgba(10, 87, 255, .18); padding-left: .6rem; }
+.stockroom-queue button span, .stockroom-queue button strong, .stockroom-queue button small { display: block; }
+.stockroom-queue button span { color: var(--signal); font-size: .62rem; font-weight: 800; letter-spacing: .09em; margin-bottom: .38rem; text-transform: uppercase; }
+.stockroom-queue button strong { font-size: .9rem; }
+.stockroom-queue button small { color: rgba(246, 243, 238, .55); font-size: .68rem; margin-top: .28rem; }
+.stockroom-note { color: rgba(246, 243, 238, .55); font-size: .68rem; line-height: 1.55; margin: auto 0 0; padding-top: 1.5rem; }
+.stockroom-main { min-height: 31rem; padding: 2rem; }
+.stockroom-overview > .eyebrow { margin: .1rem 0 .8rem; }
+.stockroom-overview h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem); letter-spacing: -.06em; line-height: .98; margin: 0; max-width: 48rem; }
+.stockroom-overview > p:not(.eyebrow) { color: rgba(246, 243, 238, .7); font-size: .92rem; line-height: 1.6; margin: 1rem 0 1.4rem; max-width: 42rem; }
+.stockroom-metrics { display: grid; gap: .6rem; grid-template-columns: repeat(3, 1fr); }
+.stockroom-metrics article { background: rgba(246, 243, 238, .06); border: 1px solid rgba(246, 243, 238, .16); display: grid; gap: .38rem; min-height: 6.2rem; padding: .9rem 1rem; }
+.stockroom-metrics span, .stockroom-metrics small { color: rgba(246, 243, 238, .55); font-size: .61rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.stockroom-metrics strong { color: var(--signal); font-family: var(--font-display); font-size: 1.8rem; letter-spacing: -.05em; line-height: 1; }
+.stockroom-metrics small { letter-spacing: 0; text-transform: none; }
+.stockroom-decision { display: grid; gap: .7rem; grid-template-columns: minmax(12rem, .75fr) minmax(0, 1.3fr); margin-top: 1.4rem; }
+.stockroom-locations { border: 1px solid rgba(246, 243, 238, .16); padding: 1.1rem; }
+.stockroom-locations > .eyebrow { margin: 0 0 .8rem; }
+.stockroom-locations > p { border-top: 1px solid rgba(246, 243, 238, .13); font-size: .75rem; margin: 0; padding: .7rem 0; }
+.stockroom-locations p span { color: var(--signal); margin-right: .45rem; }
+.stockroom-recommendation { background: var(--bone-white); color: var(--ink-black); display: flex; flex-direction: column; padding: 1.1rem; }
+.stockroom-recommendation .eyebrow { color: var(--navy-blue); margin: 0; }
+.stockroom-recommendation h3 { font-family: var(--font-display); font-size: 1.32rem; letter-spacing: -.04em; line-height: 1.05; margin: .7rem 0; max-width: 28rem; }
+.stockroom-recommendation > p { color: #59616c; font-size: .76rem; line-height: 1.45; margin: 0; }
+.stockroom-recommendation button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .7rem; font-weight: 800; margin-top: auto; padding: .75rem; }
+.stockroom-recommendation button.is-approved { background: var(--navy-blue); cursor: default; }
+.stockroom-recommendation > small { color: #69707a; font-size: .59rem; line-height: 1.35; margin-top: .65rem; }
 .kitchenpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
 .kitchenpulse-side { background: #071a47; display: flex; flex-direction: column; padding: 2rem 1.25rem; }
 .kitchenpulse-side > .eyebrow { margin: 0 0 .8rem; }
@@ -409,6 +441,11 @@ button { font: inherit; }
   .careroute-queue-note { display: none; }
   .careroute-patient-view { padding: 1.5rem 1.25rem; }
   .careroute-handoff { padding: 1.5rem 1.25rem; }
+  .stockroom-layout { grid-template-columns: 1fr; }
+  .stockroom-queue { min-height: auto; }
+  .stockroom-note { display: none; }
+  .stockroom-main { padding: 1.5rem 1.25rem; }
+  .stockroom-metrics, .stockroom-decision { grid-template-columns: 1fr; }
   .tableflow-board { grid-template-columns: 1fr; }
   .tableflow-stats { grid-template-columns: repeat(3, 1fr); }
   .tableflow-queue > div { grid-template-columns: 4.5rem 1fr; }

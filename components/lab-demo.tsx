@@ -63,6 +63,12 @@ const careJourneys = [
   { label: "Family booking", person: "Jamie K.", reason: "Family booking · guardian", step: "1 of 4", question: "Who is this appointment for?", answer: "We’ll collect only the practical details the team needs to arrange the right next step.", readiness: "Start intake", handoff: "Confirm guardian contact and appointment type", status: "New" },
 ];
 
+const stockSignals = [
+  { label: "High priority", product: "Cloudline carry-on", sku: "CL-24 / navy", stock: "06", velocity: "18 sold · 7 days", coverage: "2.3 days", reason: "Downtown sales accelerated after the weekend feature.", recommendation: "Move 10 units from Riverside and review a 24-unit supplier order", impact: "Prevents an empty shelf during the next peak", stores: ["Downtown · 6 on hand", "Riverside · 18 on hand", "Online · 9 reserved"] },
+  { label: "Watch", product: "Everyday sling", sku: "ES-11 / stone", stock: "14", velocity: "11 sold · 7 days", coverage: "6.1 days", reason: "Demand is steady, but the next delivery is not yet confirmed.", recommendation: "Ask the buyer to confirm the delivery date before reordering", impact: "Keeps cash and shelf space in balance", stores: ["Downtown · 14 on hand", "Riverside · 11 on hand", "Online · 4 reserved"] },
+  { label: "Review", product: "Weekender duffel", sku: "WD-08 / black", stock: "22", velocity: "04 sold · 7 days", coverage: "38 days", reason: "Current availability exceeds the recent demand pattern.", recommendation: "Hold the next replenishment and review the display placement", impact: "Avoids buying stock that will wait", stores: ["Downtown · 22 on hand", "Riverside · 19 on hand", "Online · 2 reserved"] },
+];
+
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
@@ -75,6 +81,8 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [signalApproved, setSignalApproved] = useState(false);
   const [careJourney, setCareJourney] = useState(careJourneys[0]);
   const [careReady, setCareReady] = useState(false);
+  const [stockSignal, setStockSignal] = useState(stockSignals[0]);
+  const [stockApproved, setStockApproved] = useState(false);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -134,6 +142,25 @@ export function LabDemo({ lab }: { lab: Lab }) {
             <p className="signaldesk-need">{signalLead.need}</p>
             <div className="signaldesk-context"><p><span>Why it surfaced</span>{signalLead.context}</p><p><span>Suggested owner</span>{signalLead.owner}</p></div>
             <div className="signaldesk-action"><div><span>Recommended next action</span><strong>{signalLead.action}</strong></div><button className={signalApproved ? "is-approved" : ""} disabled={signalApproved} onClick={() => setSignalApproved(true)} type="button">{signalApproved ? "Human approval recorded" : "Approve next action"}</button></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (lab.slug === "stockroom") {
+    return (
+      <section className="lab-demo lab-demo-navy stockroom-demo" aria-label={`${lab.title} interactive demonstration`}>
+        <div className="lab-demo-chrome"><span /><span /><span /><p>Stockroom / reorder signal dashboard</p></div>
+        <div className="stockroom-layout">
+          <aside className="stockroom-queue">
+            <p className="eyebrow">Reorder signals · 03</p>
+            {stockSignals.map((signal) => <button className={stockSignal.product === signal.product ? "is-active" : ""} key={signal.product} onClick={() => { setStockSignal(signal); setStockApproved(false); }} type="button"><span>{signal.label}</span><strong>{signal.product}</strong><small>{signal.coverage} of cover</small></button>)}
+            <p className="stockroom-note">Simulated stock, sales, and supplier signals only. Nothing is transferred, ordered, or changed by this concept.</p>
+          </aside>
+          <div className="stockroom-main" aria-live="polite">
+            <div className="stockroom-overview"><p className="eyebrow">Inventory decision · review required</p><h2>{stockSignal.product} needs a deliberate next step.</h2><p>{stockSignal.reason}</p><div className="stockroom-metrics"><article><span>On hand</span><strong>{stockSignal.stock}</strong><small>units across the network</small></article><article><span>Recent velocity</span><strong>{stockSignal.velocity}</strong><small>illustrative sales signal</small></article><article><span>Estimated cover</span><strong>{stockSignal.coverage}</strong><small>not a demand guarantee</small></article></div></div>
+            <div className="stockroom-decision"><div className="stockroom-locations"><p className="eyebrow">Location view</p>{stockSignal.stores.map((store) => <p key={store}><span>•</span>{store}</p>)}</div><div className="stockroom-recommendation"><p className="eyebrow">Explainable recommendation</p><h3>{stockSignal.recommendation}</h3><p>{stockSignal.impact}</p><button className={stockApproved ? "is-approved" : ""} disabled={stockApproved} onClick={() => setStockApproved(true)} type="button">{stockApproved ? "Owner review recorded in this demo" : "Approve for buyer review"}</button><small>Simulation only · this never sends a supplier order, moves inventory, or changes product availability.</small></div></div>
           </div>
         </div>
       </section>
