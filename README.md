@@ -100,6 +100,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Expanded, visually reviewed, built, and deployed Stockroom as a deeper inventory-and-reorder showcase. It now presents three fictional stock signals, location-level availability, explainable recommendations, and an owner-review step before any potential buyer action. It never places supplier orders, moves inventory, or changes product availability. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
 - Expanded, visually reviewed, built, and deployed FieldLink as a deeper field-service dispatch showcase. It now presents a fictional route pulse, three scheduling exceptions, transparent coordination recommendations, and a dispatcher-review step before any potential booking or customer update. It never changes appointments or contacts people. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
 - Expanded, visually reviewed, built, and deployed GuestSignal as a deeper hospitality stay-planning showcase. It now presents three fictional guest situations, preference and timeline signals, staff-owned preparation, and a human-review step before any potential booking or customer contact. It never sends messages, changes reservations, or promises services. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
+- Expanded, visually reviewed, built, and deployed ProjectPulse as a deeper project-delivery showcase. It now presents three fictional delivery signals, milestone visibility, decision-ready briefs, and a project-lead review step before any potential external update. It never changes plans, budgets, documents, or contacts clients. The Node 22 static production export passed, and the live page was verified after Hostinger deployment.
 
 ### Pending
 
@@ -113,5 +114,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Review the live Stockroom functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live FieldLink functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live GuestSignal functional showcase and collect feedback for the next Nimrod Labs app.
+- Review the live ProjectPulse functional showcase and collect feedback for the next Nimrod Labs app.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.

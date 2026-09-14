@@ -81,6 +81,12 @@ const guestMoments = [
   { label: "Local discovery", guest: "Jordan P.", stay: "Friday · 3 nights", preference: "Accessible neighbourhood ideas", detail: "Jordan’s planning note asks for a calm, accessible way to explore the neighbourhood at their own pace.", suggestion: "Review a short accessible local guide with the concierge before making it available to the guest.", timeline: ["Pre-arrival · interests noted", "Check-in · ask permission", "During stay · concierge review"], owner: "Concierge" },
 ];
 
+const projectSignals = [
+  { label: "Client decision", project: "Harbour House fit-out", milestone: "Design sign-off · Friday", detail: "The layout is ready for a client choice between the two approved reception approaches.", recommendation: "Prepare a side-by-side decision brief and ask the project lead to review it before it is shared.", owner: "Project lead", status: "Decision needed" },
+  { label: "Delivery watch", project: "Northline workspace", milestone: "Joinery delivery · 8 days", detail: "The supplier timeline is still on track, but a material confirmation is needed to protect the install window.", recommendation: "Ask the delivery coordinator to confirm the final material release before the next client update.", owner: "Delivery coordinator", status: "Watch item" },
+  { label: "Change request", project: "Cedar retail refresh", milestone: "Scope review · Monday", detail: "A late lighting request affects budget and sequencing, so it needs a clear trade-off rather than a hidden change.", recommendation: "Draft the cost-and-timing impact for the project manager to review with the client.", owner: "Project manager", status: "Review change" },
+];
+
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
@@ -99,6 +105,8 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [fieldApproved, setFieldApproved] = useState(false);
   const [guestMoment, setGuestMoment] = useState(guestMoments[0]);
   const [guestApproved, setGuestApproved] = useState(false);
+  const [projectSignal, setProjectSignal] = useState(projectSignals[0]);
+  const [projectApproved, setProjectApproved] = useState(false);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -206,6 +214,18 @@ export function LabDemo({ lab }: { lab: Lab }) {
         <div className="guestsignal-layout">
           <aside className="guestsignal-queue"><p className="eyebrow">Arrivals to consider · 03</p>{guestMoments.map((moment) => <button className={guestMoment.guest === moment.guest ? "is-active" : ""} key={moment.guest} onClick={() => { setGuestMoment(moment); setGuestApproved(false); }} type="button"><span>{moment.label}</span><strong>{moment.guest}</strong><small>{moment.stay}</small></button>)}<p>Fictional preferences only · this concept does not access a booking system or contact a guest.</p></aside>
           <div className="guestsignal-main" aria-live="polite"><p className="eyebrow">Guest brief · staff-owned moment</p><h2>A considered stay starts with a useful handoff.</h2><div className="guestsignal-overview"><div><span>Stay</span><strong>{guestMoment.stay}</strong></div><div><span>Stated preference</span><strong>{guestMoment.preference}</strong></div></div><p className="guestsignal-detail">{guestMoment.detail}</p><div className="guestsignal-timeline">{guestMoment.timeline.map((item, index) => <div key={item}><i>{String(index + 1).padStart(2, "0")}</i><span>{item}</span></div>)}</div><div className="guestsignal-review"><div><p className="eyebrow">Suggested preparation</p><h3>{guestMoment.suggestion}</h3></div><aside><span>Suggested owner</span><strong>{guestMoment.owner}</strong><button className={guestApproved ? "is-approved" : ""} disabled={guestApproved} onClick={() => setGuestApproved(true)} type="button">{guestApproved ? "Host review recorded" : "Mark ready for host review"}</button><small>Simulation only · no reservation, message, or service promise is changed.</small></aside></div></div>
+        </div>
+      </section>
+    );
+  }
+
+  if (lab.slug === "projectpulse") {
+    return (
+      <section className="lab-demo lab-demo-navy projectpulse-demo" aria-label={`${lab.title} interactive demonstration`}>
+        <div className="lab-demo-chrome"><span /><span /><span /><p>ProjectPulse / delivery clarity workspace</p></div>
+        <div className="projectpulse-layout">
+          <aside className="projectpulse-queue"><p className="eyebrow">Project pulse · 03</p>{projectSignals.map((signal) => <button className={projectSignal.project === signal.project ? "is-active" : ""} key={signal.project} onClick={() => { setProjectSignal(signal); setProjectApproved(false); }} type="button"><span>{signal.status}</span><strong>{signal.project}</strong><small>{signal.milestone}</small></button>)}<p>Fictional project signals only · this concept does not update plans, send documents, or contact clients.</p></aside>
+          <div className="projectpulse-main" aria-live="polite"><p className="eyebrow">Shared project view · human review required</p><h2>Make the next useful decision clear before the status meeting.</h2><div className="projectpulse-milestones"><div><span>01</span><strong>Scope aligned</strong></div><div className="is-current"><span>02</span><strong>Decision ready</strong></div><div><span>03</span><strong>Delivery protected</strong></div></div><div className="projectpulse-decision"><div><p className="eyebrow">{projectSignal.label}</p><h3>{projectSignal.recommendation}</h3><p>{projectSignal.detail}</p></div><aside><span>Suggested owner</span><strong>{projectSignal.owner}</strong><span>Next milestone</span><strong>{projectSignal.milestone}</strong><button className={projectApproved ? "is-approved" : ""} disabled={projectApproved} onClick={() => setProjectApproved(true)} type="button">{projectApproved ? "Project review recorded" : "Prepare for project lead review"}</button><small>Simulation only · no plan, budget, document, or client update changes from this demo.</small></aside></div></div>
         </div>
       </section>
     );

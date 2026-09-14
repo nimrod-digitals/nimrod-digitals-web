@@ -404,6 +404,35 @@ button { font: inherit; }
 .guestsignal-review button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .67rem; font-weight: 800; margin-top: auto; padding: .7rem; }
 .guestsignal-review button.is-approved { background: var(--bone-white); color: var(--navy-blue); cursor: default; }
 .guestsignal-review small { color: rgba(246, 243, 238, .58); font-size: .57rem; line-height: 1.35; margin-top: .6rem; }
+.projectpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
+.projectpulse-queue { background: #071a47; display: flex; flex-direction: column; padding: 1.4rem 1.25rem; }
+.projectpulse-queue > .eyebrow { margin: .2rem 0 1rem; }
+.projectpulse-queue button { background: transparent; border: 0; border-top: 1px solid rgba(246,243,238,.15); color: var(--bone-white); cursor: pointer; display: grid; gap: .3rem; padding: .85rem 0; text-align: left; }
+.projectpulse-queue button:last-of-type { border-bottom: 1px solid rgba(246,243,238,.15); }
+.projectpulse-queue button span { color: rgba(246,243,238,.55); font-size: .58rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+.projectpulse-queue button strong { font-size: .8rem; }
+.projectpulse-queue button small { color: rgba(246,243,238,.56); font-size: .62rem; }
+.projectpulse-queue button.is-active span, .projectpulse-queue button.is-active strong { color: var(--signal); }
+.projectpulse-queue > p:last-child { color: rgba(246,243,238,.55); font-size: .64rem; line-height: 1.45; margin: auto 0 0; padding-top: 1rem; }
+.projectpulse-main { min-height: 31rem; padding: 2rem; }
+.projectpulse-main > .eyebrow { margin: .1rem 0 .7rem; }
+.projectpulse-main h2 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3.5rem); letter-spacing: -.06em; line-height: .98; margin: 0 0 1.4rem; max-width: 47rem; }
+.projectpulse-milestones { display: grid; gap: .55rem; grid-template-columns: repeat(3,1fr); }
+.projectpulse-milestones div { border: 1px solid rgba(246,243,238,.16); display: grid; gap: .6rem; min-height: 5.2rem; padding: .8rem; }
+.projectpulse-milestones div.is-current { background: rgba(10,87,255,.16); border-color: var(--signal); }
+.projectpulse-milestones span { color: var(--signal); font-size: .62rem; font-weight: 800; }
+.projectpulse-milestones strong { font-size: .75rem; }
+.projectpulse-decision { display: grid; gap: .7rem; grid-template-columns: minmax(0,1.45fr) minmax(12rem,.75fr); margin-top: 1.2rem; }
+.projectpulse-decision > div { border: 1px solid rgba(246,243,238,.16); padding: 1.1rem; }
+.projectpulse-decision .eyebrow { margin: 0; }
+.projectpulse-decision h3 { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -.04em; line-height: 1.08; margin: .65rem 0; }
+.projectpulse-decision > div > p:not(.eyebrow) { color: rgba(246,243,238,.68); font-size: .76rem; line-height: 1.5; margin: 0; }
+.projectpulse-decision aside { background: var(--bone-white); color: var(--ink-black); display: flex; flex-direction: column; padding: 1.1rem; }
+.projectpulse-decision aside span { color: #69707a; font-size: .58rem; font-weight: 800; letter-spacing: .08em; margin-top: .25rem; text-transform: uppercase; }
+.projectpulse-decision aside strong { font-size: .76rem; line-height: 1.28; margin: .22rem 0 .55rem; }
+.projectpulse-decision aside button { background: var(--signal); border: 0; color: var(--bone-white); cursor: pointer; font-size: .68rem; font-weight: 800; margin-top: auto; padding: .7rem; }
+.projectpulse-decision aside button.is-approved { background: var(--navy-blue); cursor: default; }
+.projectpulse-decision aside small { color: #69707a; font-size: .58rem; line-height: 1.35; margin-top: .6rem; }
 .kitchenpulse-layout { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(0, 1.7fr); }
 .kitchenpulse-side { background: #071a47; display: flex; flex-direction: column; padding: 2rem 1.25rem; }
 .kitchenpulse-side > .eyebrow { margin: 0 0 .8rem; }
@@ -515,6 +544,10 @@ button { font: inherit; }
   .guestsignal-queue > p:last-child { display: none; }
   .guestsignal-main { padding: 1.5rem 1.25rem; }
   .guestsignal-overview, .guestsignal-timeline, .guestsignal-review { grid-template-columns: 1fr; }
+  .projectpulse-layout { grid-template-columns: 1fr; }
+  .projectpulse-queue > p:last-child { display: none; }
+  .projectpulse-main { padding: 1.5rem 1.25rem; }
+  .projectpulse-milestones, .projectpulse-decision { grid-template-columns: 1fr; }
   .tableflow-board { grid-template-columns: 1fr; }
   .tableflow-stats { grid-template-columns: repeat(3, 1fr); }
   .tableflow-queue > div { grid-template-columns: 4.5rem 1fr; }
