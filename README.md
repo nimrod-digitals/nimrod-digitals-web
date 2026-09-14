@@ -111,6 +111,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the live SignalDesk review: its fictional lead selection updates the explainable AI-assisted brief, and the recommended action remains gated behind a visible human-approval control. No lead is contacted or stored.
 - Completed the live GuestSignal review: guest scenarios update the staff-owned preparation brief and suggested owner, and review remains an explicit human step. No guest, reservation, message, or service promise is changed.
 - Completed the live FieldLink review: each fictional dispatch exception updates the suggested coordination step, customer, and technician context. Dispatcher review is explicit and does not change a booking or contact anyone.
+- Completed the live Stockroom review: selecting a fictional stock signal updates the inventory context and explainable recommendation. Buyer review is explicit and cannot place an order, move stock, or change availability.
 
 ### Pending
 
@@ -120,7 +121,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Review the live Nimrod Labs concept portfolio, including the eight project-specific banners and TableFlow’s AI WhatsApp concierge, and collect feedback for the next iteration.
 - Review the live TableFlow functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live CareRoute functional showcase and collect feedback for the next Nimrod Labs app.
-- Review the live Stockroom functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live ProjectPulse functional showcase and collect feedback for the next Nimrod Labs app.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
