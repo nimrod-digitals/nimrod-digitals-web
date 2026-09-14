@@ -109,6 +109,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Cleared the remaining obsolete Hostinger release archives and the 11 numbered recovery copies from `public_html` after approval. They were moved to the recoverable Hostinger trash; the active site, CMS, Labs, and hosting files were left untouched.
 - Completed a live conversion-path review of the Contact guide: all four choices update to the intended Lab pattern and retain the correct concept and email-draft links.
 - Completed the live SignalDesk review: its fictional lead selection updates the explainable AI-assisted brief, and the recommended action remains gated behind a visible human-approval control. No lead is contacted or stored.
+- Completed the live GuestSignal review: guest scenarios update the staff-owned preparation brief and suggested owner, and review remains an explicit human step. No guest, reservation, message, or service promise is changed.
 
 ### Pending
 
@@ -120,7 +121,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Review the live CareRoute functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live Stockroom functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live FieldLink functional showcase and collect feedback for the next Nimrod Labs app.
-- Review the live GuestSignal functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live ProjectPulse functional showcase and collect feedback for the next Nimrod Labs app.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
