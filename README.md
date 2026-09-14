@@ -117,6 +117,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the live ProjectPulse review: each fictional project signal updates the decision brief, owner, and next milestone. Project review is explicit and does not modify plans, budgets, documents, or client communications.
 - Completed the live Work-page visitor-journey review: the page accurately presents eight original concept demonstrations, every Lab-card link returns successfully, and the Contact call to action is live.
 - Completed the CMS release-readiness review: “When AI Speeds Up the Work, Judgment Becomes the Bottleneck” is scheduled for September 21, 2026 at 1:00 AM, with its preview and sources reviewed. “Give Your AI Agent a Job Description Before You Give It Access” remains scheduled for October 5, 2026 at 1:00 AM. No CMS post was modified.
+- Branded the public CMS fallback: site identity now uses Nimrod Digitals and the approved tagline, while the unresolved Hostinger starter footer was replaced with a navy Nimrod footer containing only the verified email and copyright. The scheduled-post preview was rechecked with no placeholder labels remaining. The static main site was not changed.
 
 ### Pending
 
