@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Lab } from "@/lib/labs";
 
 const states = ["Overview", "Signals", "Next action"] as const;
@@ -90,11 +90,13 @@ const projectSignals = [
 export function LabDemo({ lab }: { lab: Lab }) {
   const [active, setActive] = useState<(typeof states)[number]>("Overview");
   const [restaurantPrompt, setRestaurantPrompt] = useState(restaurantPrompts[0]);
-  const [tableFlowView, setTableFlowView] = useState<"concierge" | "service">("concierge");
+  const [tableFlowView, setTableFlowView] = useState<"concierge" | "service" | "growth">("concierge");
   const [reservationConfirmed, setReservationConfirmed] = useState(false);
+  const [campaignApproved, setCampaignApproved] = useState(false);
   const [kitchenView, setKitchenView] = useState(kitchenViews[0]);
   const [kitchenRecommendation, setKitchenRecommendation] = useState(kitchenViews[0].recommendations[0]);
   const [kitchenApproved, setKitchenApproved] = useState(false);
+  const [restaurantGrowthSignal, setRestaurantGrowthSignal] = useState(false);
   const [signalLead, setSignalLead] = useState(signalLeads[0]);
   const [signalApproved, setSignalApproved] = useState(false);
   const [careJourney, setCareJourney] = useState(careJourneys[0]);
@@ -107,6 +109,10 @@ export function LabDemo({ lab }: { lab: Lab }) {
   const [guestApproved, setGuestApproved] = useState(false);
   const [projectSignal, setProjectSignal] = useState(projectSignals[0]);
   const [projectApproved, setProjectApproved] = useState(false);
+
+  useEffect(() => {
+    setRestaurantGrowthSignal(window.localStorage.getItem("nimrod-tableflow-growth-signal") === "approved");
+  }, []);
   const current = active === "Overview"
     ? { label: "Current focus", title: lab.problem, detail: "A useful digital product starts by making the real decision visible." }
     : active === "Signals"
@@ -120,6 +126,7 @@ export function LabDemo({ lab }: { lab: Lab }) {
         <div className="tableflow-tabs" role="tablist" aria-label="TableFlow demo views">
           <button aria-selected={tableFlowView === "concierge"} className={tableFlowView === "concierge" ? "is-active" : ""} onClick={() => setTableFlowView("concierge")} role="tab" type="button">Concierge</button>
           <button aria-selected={tableFlowView === "service"} className={tableFlowView === "service" ? "is-active" : ""} onClick={() => setTableFlowView("service")} role="tab" type="button">Service board <span>{reservationConfirmed ? "15" : "14"}</span></button>
+          <button aria-selected={tableFlowView === "growth"} className={tableFlowView === "growth" ? "is-active" : ""} onClick={() => setTableFlowView("growth")} role="tab" type="button">Growth loop</button>
         </div>
         {tableFlowView === "concierge" ? (
           <div className="tableflow-layout">
@@ -139,11 +146,16 @@ export function LabDemo({ lab }: { lab: Lab }) {
               <p className="tableflow-note">Concept simulation only · no WhatsApp account, customer data, booking, or marketing message is sent.</p>
             </div>
           </div>
-        ) : (
+        ) : tableFlowView === "service" ? (
           <div className="tableflow-board" aria-live="polite">
             <div className="tableflow-board-intro"><p className="eyebrow">Saturday dinner · live concept view</p><h2>One calm picture of what needs the team’s attention.</h2><p>Every item is a simulated example. The shift lead remains responsible for confirmation and exceptions.</p></div>
             <div className="tableflow-stats"><article><span>0{reservationConfirmed ? "15" : "14"}</span><p>Confirmed bookings</p></article><article><span>03</span><p>Dietary notes to review</p></article><article><span>01</span><p>Private dining lead</p></article></div>
             <div className="tableflow-queue"><p className="eyebrow">Team queue</p><div><span className={reservationConfirmed ? "tableflow-status is-new" : "tableflow-status"}>{reservationConfirmed ? "New" : "Ready"}</span><strong>{reservationConfirmed ? "Table for 4 · 7:00 PM" : "Kitchen dietary confirmation"}</strong><small>{reservationConfirmed ? "Indoor/outdoor preference still needed" : "Gluten-free options need staff review"}</small></div><div><span className="tableflow-status">Follow up</span><strong>Birthday dinner · 18 guests</strong><small>Events team needs date and budget range</small></div></div>
+          </div>
+        ) : (
+          <div className="tableflow-growth" aria-live="polite">
+            <div className="tableflow-growth-intro"><p className="eyebrow">Permission-based growth · owner review</p><h2>Bring guests back when there is real capacity to welcome them.</h2><p>This concept turns consented interest into a small, considered campaign—not an automated blast. It shares only a simulated demand signal with the operating view.</p><div className="tableflow-growth-steps"><span>01 · Opt-in confirmed</span><span>02 · Quiet-period audience selected</span><span>03 · Owner approval required</span></div></div>
+            <aside className="tableflow-campaign-card"><p className="eyebrow">Thursday early seating</p><h3>Weekend specials · simulated campaign</h3><dl><div><dt>Eligible audience</dt><dd>48 consented guests</dd></div><div><dt>Capacity signal</dt><dd>6:00–6:45 PM has room</dd></div><div><dt>Suggested message</dt><dd>“A relaxed early table is available this weekend. Reply to explore times.”</dd></div></dl><button className={campaignApproved ? "is-approved" : ""} disabled={campaignApproved} onClick={() => { window.localStorage.setItem("nimrod-tableflow-growth-signal", "approved"); setCampaignApproved(true); }} type="button">{campaignApproved ? "Owner approval recorded in this demo" : "Approve campaign brief"}</button>{campaignApproved ? <a href="/labs/kitchenpulse/#growth-signal">View the simulated KitchenPulse signal ↗</a> : <small>No WhatsApp message, offer, booking, or customer data is sent in this concept.</small>}</aside>
           </div>
         )}
       </section>
@@ -279,8 +291,9 @@ export function LabDemo({ lab }: { lab: Lab }) {
           <div className="kitchenpulse-main" aria-live="polite">
             <p className="eyebrow">AI shift brief · {kitchenView.label}</p>
             <h2>{kitchenView.headline}</h2>
+            {restaurantGrowthSignal && <div className="kitchenpulse-growth-signal" id="growth-signal"><span>TableFlow signal · simulated</span><strong>Owner-approved early-seating brief suggests up to 6 additional covers.</strong><p>Review it alongside staffing and prep before changing the shift plan.</p></div>}
             <div className="kitchenpulse-metrics" aria-label="Simulated shift metrics">
-              <article><span>Forecast covers</span><strong>{kitchenView.pulse.covers}</strong><small>{kitchenView.pulse.delta} vs typical</small></article>
+              <article><span>Forecast covers</span><strong>{restaurantGrowthSignal && kitchenView.label === "Start of shift" ? "92" : kitchenView.pulse.covers}</strong><small>{restaurantGrowthSignal && kitchenView.label === "Start of shift" ? "+6 reviewed signal" : `${kitchenView.pulse.delta} vs typical`}</small></article>
               <article><span>Shift readiness</span><strong>{kitchenView.pulse.readiness}</strong><small>team-confirmed inputs</small></article>
               <article><span>Owner review</span><strong>{kitchenView.pulse.action}</strong><small>decisions awaiting judgement</small></article>
             </div>
