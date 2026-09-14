@@ -116,6 +116,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the live TableFlow and KitchenPulse restaurant-journey review: a simulated reservation appears on the service board; the consent-led campaign and its browser-local operating signal each require owner review. No message, booking, staff, stock, price, supplier, or guest action is sent or changed.
 - Completed the live ProjectPulse review: each fictional project signal updates the decision brief, owner, and next milestone. Project review is explicit and does not modify plans, budgets, documents, or client communications.
 - Completed the live Work-page visitor-journey review: the page accurately presents eight original concept demonstrations, every Lab-card link returns successfully, and the Contact call to action is live.
+- Completed the CMS release-readiness review: “When AI Speeds Up the Work, Judgment Becomes the Bottleneck” is scheduled for September 21, 2026 at 1:00 AM, with its preview and sources reviewed. “Give Your AI Agent a Job Description Before You Give It Access” remains scheduled for October 5, 2026 at 1:00 AM. No CMS post was modified.
 
 ### Pending
 
