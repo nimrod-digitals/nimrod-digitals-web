@@ -118,6 +118,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the live Work-page visitor-journey review: the page accurately presents eight original concept demonstrations, every Lab-card link returns successfully, and the Contact call to action is live.
 - Completed the CMS release-readiness review: “When AI Speeds Up the Work, Judgment Becomes the Bottleneck” is scheduled for September 21, 2026 at 1:00 AM, with its preview and sources reviewed. “Give Your AI Agent a Job Description Before You Give It Access” remains scheduled for October 5, 2026 at 1:00 AM. No CMS post was modified.
 - Branded the public CMS fallback: site identity now uses Nimrod Digitals and the approved tagline, while the unresolved Hostinger starter footer was replaced with a navy Nimrod footer containing only the verified email and copyright. The scheduled-post preview was rechecked with no placeholder labels remaining. The static main site was not changed.
+- Added the approved interlocking-N logo to the public CMS header from its verified live brand-asset URL; the CMS preview now shows the logo, corrected identity, and clean footer. WordPress’s separate native site-icon field remains optional pending a local-media upload, which the embedded browser file picker currently blocks.
 
 ### Pending
 
@@ -125,4 +126,5 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - After the September 21 publication workflow completes, activate the October 5 publication-day rebuild, deployment, sitemap verification, and Google indexing follow-through. Only one heartbeat automation can be attached to this task at a time.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
+- Optionally assign the approved square profile artwork to the CMS native site-icon field when a local media upload is available.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
