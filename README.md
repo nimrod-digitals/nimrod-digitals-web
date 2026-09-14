@@ -113,6 +113,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the live FieldLink review: each fictional dispatch exception updates the suggested coordination step, customer, and technician context. Dispatcher review is explicit and does not change a booking or contact anyone.
 - Completed the live Stockroom review: selecting a fictional stock signal updates the inventory context and explainable recommendation. Buyer review is explicit and cannot place an order, move stock, or change availability.
 - Completed the live CareRoute review: fictional intake journeys update the respectful preparation handoff and stop at staff review. The concept gives no medical advice, stores no health data, and never confirms an appointment.
+- Completed the live TableFlow and KitchenPulse restaurant-journey review: a simulated reservation appears on the service board; the consent-led campaign and its browser-local operating signal each require owner review. No message, booking, staff, stock, price, supplier, or guest action is sent or changed.
 
 ### Pending
 
@@ -120,7 +121,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - After the September 21 publication workflow completes, activate the October 5 publication-day rebuild, deployment, sitemap verification, and Google indexing follow-through. Only one heartbeat automation can be attached to this task at a time.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Review the live Nimrod Labs concept portfolio, including the eight project-specific banners and TableFlow’s AI WhatsApp concierge, and collect feedback for the next iteration.
-- Review the live TableFlow functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live ProjectPulse functional showcase and collect feedback for the next Nimrod Labs app.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
