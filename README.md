@@ -108,6 +108,7 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Added and deployed a Contact-page conversion guide: “Find a useful start” is a four-path, private on-page guide that links visitors’ stated situations to SignalDesk, TableFlow + KitchenPulse, FieldLink, or ProjectPulse. It stores nothing and only opens the visitor’s own email client if they choose to start a conversation. The Node 22 static production build passed, the live Contact page plus its referenced runtime assets were verified, and owner review is complete. The completed Contact ZIP and empty staging folder were moved to recoverable trash after approval.
 - Cleared the remaining obsolete Hostinger release archives and the 11 numbered recovery copies from `public_html` after approval. They were moved to the recoverable Hostinger trash; the active site, CMS, Labs, and hosting files were left untouched.
 - Completed a live conversion-path review of the Contact guide: all four choices update to the intended Lab pattern and retain the correct concept and email-draft links.
+- Completed the live SignalDesk review: its fictional lead selection updates the explainable AI-assisted brief, and the recommended action remains gated behind a visible human-approval control. No lead is contacted or stored.
 
 ### Pending
 
@@ -116,7 +117,6 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Review the live Nimrod Labs concept portfolio, including the eight project-specific banners and TableFlow’s AI WhatsApp concierge, and collect feedback for the next iteration.
 - Review the live TableFlow functional showcase and collect feedback for the next Nimrod Labs app.
-- Review the live SignalDesk functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live CareRoute functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live Stockroom functional showcase and collect feedback for the next Nimrod Labs app.
 - Review the live FieldLink functional showcase and collect feedback for the next Nimrod Labs app.
