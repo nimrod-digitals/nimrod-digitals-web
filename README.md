@@ -119,11 +119,13 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Completed the CMS release-readiness review: “When AI Speeds Up the Work, Judgment Becomes the Bottleneck” is scheduled for September 21, 2026 at 1:00 AM, with its preview and sources reviewed. “Give Your AI Agent a Job Description Before You Give It Access” remains scheduled for October 5, 2026 at 1:00 AM. No CMS post was modified.
 - Branded the public CMS fallback: site identity now uses Nimrod Digitals and the approved tagline, while the unresolved Hostinger starter footer was replaced with a navy Nimrod footer containing only the verified email and copyright. The scheduled-post preview was rechecked with no placeholder labels remaining. The static main site was not changed.
 - Added the approved interlocking-N logo to the public CMS header from its verified live brand-asset URL; the CMS preview now shows the logo, corrected identity, and clean footer. WordPress’s separate native site-icon field remains optional pending a local-media upload, which the embedded browser file picker currently blocks.
+- Verified on November 16, 2026 that the September 21 and October 5 articles are published in WordPress, return HTTP 200 on the live site where checked, and appear in the live sitemap. Google indexing for them was not checked.
+- Cloned the repository to the Windows development PC on November 18, 2026. A clean production export passed under Node 24 with all four CMS articles and all eight Labs; earlier releases used Node 22.
 
 ### Pending
 
-- After the scheduled September 21 CMS publication, rebuild and deploy the static frontend, verify the new route and sitemap, and request Google indexing.
-- After the September 21 publication workflow completes, activate the October 5 publication-day rebuild, deployment, sitemap verification, and Google indexing follow-through. Only one heartbeat automation can be attached to this task at a time.
+- Owner approval of the November 23 AI Insights draft in `content-drafts/agents-are-logging-the-hours-who-is-counting-the-value.md`; then publish in WordPress, rebuild, deploy, verify the route and sitemap, and request Google indexing.
+- Confirm Google indexing for the September 21 and October 5 articles.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Optionally assign the approved square profile artwork to the CMS native site-icon field when a local media upload is available.
