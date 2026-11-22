@@ -121,12 +121,14 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Added the approved interlocking-N logo to the public CMS header from its verified live brand-asset URL; the CMS preview now shows the logo, corrected identity, and clean footer. WordPress’s separate native site-icon field remains optional pending a local-media upload, which the embedded browser file picker currently blocks.
 - Verified on November 16, 2026 that the September 21 and October 5 articles are published in WordPress, return HTTP 200 on the live site where checked, and appear in the live sitemap. Google indexing for them was not checked.
 - Cloned the repository to the Windows development PC on November 18, 2026. A clean production export passed under Node 24 with all four CMS articles and all eight Labs; earlier releases used Node 22.
+- Scheduled the approved article “Agents Are Logging the Hours. Who Is Counting the Value?” in WordPress as post 33 for November 23, 2026 at 9:00 AM Asia/Manila (01:00 UTC), with media 35 (`value-ledger.jpg`, with alt text) as its featured image. Added the banner, responsive, and social crops to the frontend.
+- Deployment method (verified November 22, 2026): `nimroddigitals.com` is a Hostinger Web App on the Business Web Hosting plan with Git auto-deployment from `nimrod-digitals/nimrod-digitals-web` `main`. Build settings: Node 22, pnpm, `build` script, output `out`. Every push to `main` rebuilds the static export, which reads WordPress at build time. Zip uploads and temporary SSH keys are no longer used. The November 22 push (commit `a836ab7`) built and deployed successfully, and the new banner assets return HTTP 200.
+- Hostinger state (November 22, 2026): CDN on, server cache off, development (cacheless) mode off. The earlier stale-CDN workaround no longer applies to this Web App. The old Premium Web Hosting plan is set not to renew and expires December 2, 2026; none of the nimroddigitals.com sites are on it.
 
 ### Pending
 
-- Owner approval of the November 23 AI Insights draft in `content-drafts/agents-are-logging-the-hours-who-is-counting-the-value.md`; then publish in WordPress, rebuild, deploy, verify the route and sitemap, and request Google indexing.
+- After 9:00 AM Asia/Manila on November 23, 2026, rebuild so post 33 appears on the site, then verify the route and sitemap and request Google indexing.
 - Confirm Google indexing for the September 21 and October 5 articles.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
-- Re-test Hostinger CDN delivery later; turn off development mode only when all eight corrected Lab hero assets continue to return their approved versions through the CDN.
 - Optionally assign the approved square profile artwork to the CMS native site-icon field when a local media upload is available.
-- Rebuild and upload the static package whenever approved CMS content needs to appear on the main site; the root site is static and does not update automatically after a CMS post is published.
+- Trigger a rebuild (push to `main`, or Redeploy in hPanel or through the Hostinger API) after each scheduled CMS post goes live. The site is a static export and does not update when a post is published.

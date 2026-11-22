@@ -30,7 +30,7 @@ Status: Active planning cadence
 
 ## Current queue
 
-1. "Agents Are Logging the Hours. Who Is Counting the Value?" - draft awaiting owner approval, proposed for November 23, 2026 at 9:00 AM Asia/Manila. Not yet in WordPress.
+1. "Agents Are Logging the Hours. Who Is Counting the Value?" - approved November 22, 2026 and scheduled in WordPress as post 33 for November 23, 2026 at 9:00 AM Asia/Manila. The site rebuild must follow publication.
 
 ## Published
 
@@ -43,7 +43,10 @@ Status: Active planning cadence
 
 - November 19, 2026: Resume the two-week cadence from November 23 with one new article. Why: the owner asked to restart after three missed slots. Rejected: back-filling the missed dates, because backdated articles would misrepresent when the analysis was written.
 
+- November 22, 2026: Attribute Genpact's 15% figure explicitly to its announcement. Why: its press release counts enterprises while its report page counts AI initiatives. Rejected: citing the figure without a source.
+
 ## Open questions
 
-- Genpact states the 15% figure per enterprise in its press release and per AI initiative on its report page. The draft follows the press release wording; confirm against the full PDF before publication.
+- Should a scheduled job rebuild the site automatically after each WordPress publication? Without one, a person or agent has to trigger the rebuild on publication day.
+
 - Has Google indexed the September 21 and October 5 articles? This has not been checked since publication.
