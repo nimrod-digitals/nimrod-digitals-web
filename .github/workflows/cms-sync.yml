@@ -1,0 +1,75 @@
+# Rebuilds the static site after WordPress content changes.
+#
+# The site is a static Next.js export that reads the WordPress CMS at build
+# time, and Hostinger rebuilds it on every push to main. This job checks the
+# CMS each morning. When the set of published posts (or their last-modified
+# times) differs from the fingerprint recorded in .github/cms-fingerprint.txt,
+# it commits the new fingerprint to main, and that push triggers the Hostinger
+# rebuild. No secrets are needed: the CMS REST API is public, and the commit
+# uses the workflow's own GITHUB_TOKEN.
+
+name: CMS sync rebuild
+
+on:
+  schedule:
+    # 01:15 UTC = 9:15 AM Asia/Manila, 15 minutes after the usual
+    # 9:00 AM scheduled publication time.
+    - cron: "15 1 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Commit a fingerprint refresh even if nothing changed (tests the rebuild path)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cms-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch CMS fingerprint
+        id: cms
+        run: |
+          set -euo pipefail
+          json=$(curl -fsS --retry 3 --retry-delay 10 \
+            "https://cms.nimroddigitals.com/wp-json/wp/v2/posts?per_page=100&status=publish&_fields=id,modified_gmt")
+          fp=$(echo "$json" | jq -r '[.[] | "\(.id):\(.modified_gmt)"] | sort | join(",")')
+          if [ -z "$fp" ]; then
+            echo "Empty CMS response; refusing to update the fingerprint." >&2
+            exit 1
+          fi
+          echo "fingerprint=$fp" >> "$GITHUB_OUTPUT"
+          echo "count=$(echo "$json" | jq length)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit new fingerprint when the CMS changed
+        env:
+          FP: ${{ steps.cms.outputs.fingerprint }}
+          COUNT: ${{ steps.cms.outputs.count }}
+          FORCE: ${{ inputs.force || false }}
+        run: |
+          set -euo pipefail
+          file=.github/cms-fingerprint.txt
+          old=$(cat "$file" 2>/dev/null || true)
+          if [ "$old" = "$FP" ] && [ "$FORCE" != "true" ]; then
+            echo "CMS unchanged ($COUNT published posts); no rebuild needed."
+            exit 0
+          fi
+          printf '%s\n' "$FP" > "$file"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$file"
+          if git diff --cached --quiet; then
+            git commit --allow-empty -m "chore(cms): force rebuild ($COUNT published posts)"
+          else
+            git commit -m "chore(cms): sync rebuild ($COUNT published posts)"
+          fi
+          git push origin HEAD:main
+          echo "Pushed to main; Hostinger auto-deployment will rebuild the site."
