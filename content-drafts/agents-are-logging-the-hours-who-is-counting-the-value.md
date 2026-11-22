@@ -2,7 +2,7 @@
 title: "Agents Are Logging the Hours. Who Is Counting the Value?"
 slug: "agents-are-logging-the-hours-who-is-counting-the-value"
 date: "2026-11-23"
-status: "Draft awaiting owner approval"
+status: "Approved by owner on November 22, 2026"
 proposed_publish_date: "2026-11-23"
 excerpt: "AI agents are easier to deploy than ever, and their activity is easy to count. Before scaling them, decide what value each agent owes the business and who will confirm it arrived."
 ---
@@ -25,7 +25,7 @@ That discipline is the lesson. A company with exceptional access to the technolo
 
 ## Deployment is outrunning proof
 
-The wider enterprise picture points the same way. Genpact's *Autonomy in Practice* research, published on November 12 and based on a self-reported survey of 2,005 senior decision makers across 17 industries, found that 79% of enterprises have AI agents in production. Only 20% use them broadly and consistently across functions. Only 15% have fully tied AI investment to profit-and-loss outcomes. On average, 49% of AI initiatives funded in the past 24 months delivered the value expected.
+The wider enterprise picture points the same way. Genpact's *Autonomy in Practice* research, published on November 12 and based on a self-reported survey of 2,005 senior decision makers across 17 industries, found that 79% of enterprises have AI agents in production. Only 20% use them broadly and consistently across functions. Genpact's announcement adds that only 15% have fully tied AI investment to profit-and-loss outcomes. On average, 49% of AI initiatives funded in the past 24 months delivered the value expected.
 
 Genpact sells transformation services, so its conclusions deserve the same scrutiny as any vendor research. The pattern is still useful: being live is not the same as being accountable for a result.
 

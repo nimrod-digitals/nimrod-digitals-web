@@ -25,6 +25,11 @@ const insightArtwork: Record<string, InsightArtwork> = {
     social: "/insights/social/agent-job-description.jpg",
     alt: "An AI work unit passing through defined identity, permission, and escalation gates",
   },
+  "agents-are-logging-the-hours-who-is-counting-the-value": {
+    banner: "/insights/value-ledger.jpg",
+    social: "/insights/social/value-ledger.jpg",
+    alt: "Many small blue work units crowd toward a single gate, and only one emerges onto a stepped ledger",
+  },
 };
 
 export function getInsightArtwork(slug: string) {
