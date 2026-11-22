@@ -124,11 +124,12 @@ The `lib/wordpress.ts` client is fetched during the static production build. Kee
 - Scheduled the approved article “Agents Are Logging the Hours. Who Is Counting the Value?” in WordPress as post 33 for November 23, 2026 at 9:00 AM Asia/Manila (01:00 UTC), with media 35 (`value-ledger.jpg`, with alt text) as its featured image. Added the banner, responsive, and social crops to the frontend.
 - Deployment method (verified November 22, 2026): `nimroddigitals.com` is a Hostinger Web App on the Business Web Hosting plan with Git auto-deployment from `nimrod-digitals/nimrod-digitals-web` `main`. Build settings: Node 22, pnpm, `build` script, output `out`. Every push to `main` rebuilds the static export, which reads WordPress at build time. Zip uploads and temporary SSH keys are no longer used. The November 22 push (commit `a836ab7`) built and deployed successfully, and the new banner assets return HTTP 200.
 - Hostinger state (November 22, 2026): CDN on, server cache off, development (cacheless) mode off. The earlier stale-CDN workaround no longer applies to this Web App. The old Premium Web Hosting plan is set not to renew and expires December 2, 2026; none of the nimroddigitals.com sites are on it.
+- Added `.github/workflows/cms-sync.yml` (November 22, 2026). Every day at 9:15 AM Asia/Manila (01:15 UTC) it compares the published WordPress posts and their modified times with `.github/cms-fingerprint.txt`. When they differ, it commits the new fingerprint to `main`, which triggers the Hostinger rebuild. It needs no secrets and can also be run by hand with `force`. Tested: the forced run pushed `a32423b`, and Hostinger started a build from that commit.
 
 ### Pending
 
-- After 9:00 AM Asia/Manila on November 23, 2026, rebuild so post 33 appears on the site, then verify the route and sitemap and request Google indexing.
+- After the 9:15 AM Asia/Manila CMS sync on November 23, 2026, verify that post 33's route and sitemap entry are live, then request Google indexing.
 - Confirm Google indexing for the September 21 and October 5 articles.
 - Replace the representative engagement patterns with verified client case studies when project details and publication permissions are available.
 - Optionally assign the approved square profile artwork to the CMS native site-icon field when a local media upload is available.
-- Trigger a rebuild (push to `main`, or Redeploy in hPanel or through the Hostinger API) after each scheduled CMS post goes live. The site is a static export and does not update when a post is published.
+- GitHub disables scheduled workflows in public repositories after 60 days without repository activity. Each CMS sync commit counts as activity; if publishing pauses for two months, re-enable the workflow in the Actions tab.

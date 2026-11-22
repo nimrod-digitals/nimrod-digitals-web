@@ -30,7 +30,7 @@ Status: Active planning cadence
 
 ## Current queue
 
-1. "Agents Are Logging the Hours. Who Is Counting the Value?" - approved November 22, 2026 and scheduled in WordPress as post 33 for November 23, 2026 at 9:00 AM Asia/Manila. The site rebuild must follow publication.
+1. "Agents Are Logging the Hours. Who Is Counting the Value?" - approved November 22, 2026 and scheduled in WordPress as post 33 for November 23, 2026 at 9:00 AM Asia/Manila. The daily 9:15 AM CMS sync rebuilds the site after it publishes.
 
 ## Published
 
@@ -45,8 +45,9 @@ Status: Active planning cadence
 
 - November 22, 2026: Attribute Genpact's 15% figure explicitly to its announcement. Why: its press release counts enterprises while its report page counts AI initiatives. Rejected: citing the figure without a source.
 
+- November 22, 2026: Rebuild the site automatically with a daily GitHub Actions CMS sync at 9:15 AM Asia/Manila (`.github/workflows/cms-sync.yml`). Why: the static site only updates on a push to `main`, and a manual publication-day rebuild had been missed before. Rejected: a desktop scheduled task (blocked, and it depends on the PC being on); a WordPress publish webhook (needs a stored GitHub token in the CMS); a Hostinger API token in GitHub Actions (an extra secret, when a push already triggers the rebuild).
+
 ## Open questions
 
-- Should a scheduled job rebuild the site automatically after each WordPress publication? Without one, a person or agent has to trigger the rebuild on publication day.
 
 - Has Google indexed the September 21 and October 5 articles? This has not been checked since publication.
